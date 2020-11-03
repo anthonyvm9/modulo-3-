@@ -11,6 +11,16 @@ pipeline {
                 '''
             }
             }
+            tage('jmeter tests') {
+        steps {
+                sh ''' 
+                node --version
+                cd load
+                jmeter -n -t Examen Test plan.jmx
+                cd
+                '''
+            }
+            }
           }}
             
   
