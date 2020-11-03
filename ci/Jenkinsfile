@@ -1,37 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('When') {
-            when {
-                not {
-                    branch "main"
-                }
+        stage('Newman tests') {
+      
             }
             steps {
-                echo 'Hola'
-            }
-        }
-        stage('Confirmation 1') {
-                steps {
-                    input('Do you want to proceed?')
-                }
-        }
-        stage('GoodBye') {
-            steps {
-                echo 'Good Bye'
-                echo 'GoodBye 3'
-            }
-        }
-        stage('Confirmation 2') {
-                steps {
-                    input('Do you want to proceed?')
-                }
-        }
-        stage('Stage3') {
-            steps {
-                echo 'Good Bye'
-                echo 'GoodBye 4'
-            }
-        }
-    }
-}
+                sh ''' 
+                node --version
+                cd api/newman
+                newman run examen.postman_collection.json -e examenprac.postman_environment.json
+                '''
+            }}}
+            
+  
+            
+        
+    
+
