@@ -2,15 +2,16 @@ pipeline {
     agent any
     stages {
         stage('Newman tests') {
-      
-            }
-            steps {
+        steps {
                 sh ''' 
                 node --version
                 cd api/newman
                 newman run examen.postman_collection.json -e examenprac.postman_environment.json
+                cd
                 '''
-            }}}
+            }
+            }
+          }}
             
   
             
