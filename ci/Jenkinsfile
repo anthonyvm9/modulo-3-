@@ -11,7 +11,7 @@ pipeline {
                 '''
             }
             }
-            tage('jmeter tests') {
+            stage('jmeter tests') {
         steps {
                 sh ''' 
                 node --version
