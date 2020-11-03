@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "0e10b6bc-6b96-4435-a502-71260c90b311",
+		"name": "examen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "put",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7a6af33-cbfb-485c-8c5b-fbf1c305e70c",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Name was not provided\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/updateName",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"updateName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getrandomname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "75e775a2-cbc8-4b9c-8f13-6f0d1284163d",
+						"exec": [
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Please login first\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/randomName",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"randomName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ramdonnameauth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "155d1f09-3cac-4d9f-bfdd-cc332ffcb33c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"random_name\", jsonData.name);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "testpass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "testuser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\t\t\"name\": \"anthony\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/randomName",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"randomName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "samename",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "99a95cfa-1804-4c6d-b1fb-8d3e67864652",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"name\" : \"{{random_name}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/sameName",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sameName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc536a67-3520-4f9f-a410-590ae0e53a8f",
+						"exec": [
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Listos para el examen\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/status?",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"status"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
