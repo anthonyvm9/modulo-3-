@@ -6,7 +6,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class Putname {
 
     @Test
-    public void putnamevalid() {
+    public void Putname() {
         when().
                 put("https://api-coffee-testing.herokuapp.com/v1/examen/updateName")
 

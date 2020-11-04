@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class samename {
     @Test
-    public void putnamevalid() {
+    public void  samename() {
         when().
                 get("https://api-coffee-testing.herokuapp.com/v1/examen/randomName")
 

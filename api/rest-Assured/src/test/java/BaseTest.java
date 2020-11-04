@@ -13,7 +13,7 @@ public class BaseTest {
     @Parameters ("baseUrl")
     public void SetupRestAssured(@Optional String baseUrl){
         if (baseUrl == null){
-            baseUrl = "https://api-coffee-testing.herokuapp.com/v1/examen/sameName";
+            baseUrl = "https://api-coffee-testing.herokuapp.com/v1/examen/samejName";
         }
         RestAssured.baseURI = baseUrl;
 

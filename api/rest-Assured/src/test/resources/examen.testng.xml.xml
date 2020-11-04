@@ -4,7 +4,10 @@
     <parameter name="baseUrl" value="http://localhost:9000"></parameter>
     <test name="Regression" >
         <classes>
-            <class name="NonApiTests" />
+            <class name="getrandom" />
+            <class name="Putname" />
+            <class name="samename" />
+            <class name="status" />
         </classes>
     </test>
 </suite>

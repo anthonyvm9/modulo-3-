@@ -13,10 +13,10 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 
-public class getrandom extends BaseTest {
+public class getrandom {
     public String namejson = "" ;
     @Test
-    public void putnamevalid() {
+    public void Samename() {
         String userId =
         given().auth()
 
